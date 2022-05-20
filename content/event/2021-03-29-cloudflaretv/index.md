@@ -28,7 +28,7 @@ all_day: false
 # Schedule page publish date (NOT talk date).
 publishDate: 2021-03-29
 
-authors: ['thom', 'sofiaceli']
+authors: ['thom', 'Sofía Celi']
 tags:
   - KEMTLS
   - PQTLS

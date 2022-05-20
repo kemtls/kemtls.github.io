@@ -3,7 +3,7 @@
 
 title: "A tale of two models: formalizing KEMTLS in Tamarin"
 authors:
-  - "sofiaceli"
+  - "Sofía Celi"
   - "Jonathan Hoyland"
   - "douglasstebila"
   - "thom"
