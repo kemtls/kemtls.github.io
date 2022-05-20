@@ -1,0 +1,249 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Wowchemy 5.5.0 for Hugo"><meta name=author content="Douglas Stebila"><meta name=description content="Talk about Post-Quantum TLS without Handshake Signatures at RWC 2021 (virtual)."><link rel=alternate hreflang=en-us href=https://kemtls.org/event/2021-01-11-rwc/><meta name=theme-color content="#1565c0"><link rel=stylesheet href=/css/vendor-bundle.min.c7b8d9abd591ba2253ea42747e3ac3f5.css media=print onload='this.media="all"'><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin=anonymous media=print onload='this.media="all"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css crossorigin=anonymous title=hl-light media=print onload='this.media="all"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css crossorigin=anonymous title=hl-dark media=print onload='this.media="all"' disabled><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css integrity crossorigin=anonymous media=print onload='this.media="all"'><link rel=stylesheet href=/css/wowchemy.f708997de6bf6d3fbc17fe5acf5258b1.css><link rel=manifest href=/manifest.webmanifest><link rel=icon type=image/png href=/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png><link rel=apple-touch-icon type=image/png href=/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png><link rel=canonical href=https://kemtls.org/event/2021-01-11-rwc/><meta property="twitter:card" content="summary"><meta property="og:site_name" content="KEMTLS"><meta property="og:url" content="https://kemtls.org/event/2021-01-11-rwc/"><meta property="og:title" content="Post-Quantum TLS without handshake signatures at RWC 2021 | KEMTLS"><meta property="og:description" content="Talk about Post-Quantum TLS without Handshake Signatures at RWC 2021 (virtual)."><meta property="og:image" content="https://kemtls.org/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png"><meta property="twitter:image" content="https://kemtls.org/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2021-01-11T00:00:00+00:00"><meta property="article:modified_time" content="2021-01-11T18:15:00+01:00"><script type=application/ld+json>{"@context":"https://schema.org","@type":"Event","mainEntityOfPage":{"@type":"WebPage","@id":"https://kemtls.org/event/2021-01-11-rwc/"},"name":"Post-Quantum TLS without handshake signatures at RWC 2021","location":{"@type":"Place","name":"Virtual","address":{"@type":"PostalAddress","streetAddress":"","addressLocality":"","postalCode":"","addressRegion":"","addressCountry":""}},"startDate":"2021-01-11T18:15:00+01:00","performer":{"@type":"Person","name":"Thom Wiggers"},"description":"Talk about Post-Quantum TLS without Handshake Signatures at RWC 2021 (virtual)."}</script><title>Post-Quantum TLS without handshake signatures at RWC 2021 | KEMTLS</title></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents class=page-wrapper data-wc-page-id=159bf425fdd90b1f3948c05df6fd4230><script src=/js/wowchemy-init.min.c0f249cff63de9933c81a0eaa2877c29.js></script><aside class=search-modal id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=# aria-label=Close><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search class=form-control aria-label=Search...></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><div class=page-header><header class=header--fixed><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container-xl><div class="d-none d-lg-inline-flex"><a class=navbar-brand href=/>KEMTLS</a></div><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar-content aria-expanded=false aria-label="Toggle navigation">
+<span><i class="fas fa-bars"></i></span></button><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/>KEMTLS</a></div><div class="navbar-collapse main-menu-item collapse justify-content-end" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class=nav-link href=/post><span>News</span></a></li><li class=nav-item><a class=nav-link href=/people><span>People</span></a></li><li class=nav-item><a class=nav-link href=/event><span>Events</span></a></li><li class=nav-item><a class=nav-link href=/publication><span>Publications</span></a></li><li class=nav-item><a class=nav-link href=/contact><span>Contact</span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=# aria-label=Search><i class="fas fa-search" aria-hidden=true></i></a></li></ul></div></nav></header></div><div class=page-body><div class=pub><div class="article-container pt-3"><h1>Post-Quantum TLS without handshake signatures at RWC 2021</h1><div class=article-metadata><div><span><a href=/author/thom-wiggers/>Thom Wiggers</a></span>, <span><a href=/author/sofia-celi/>Sofía Celi</a></span></div></div><div class="btn-links mb-3"><a class="btn btn-outline-primary btn-page-header" href=/event/2021-01-11-rwc/presentation.pdf target=_blank rel=noopener>Slides</a>
+<a class="btn btn-outline-primary btn-page-header" href="https://youtu.be/TZMgRnSV3pk?t=3175" target=_blank rel=noopener>Video</a></div></div><div class=article-container><h3>Abstract</h3><p class=pub-abstract>It&rsquo;s possible to make TLS 1.3 post-quantum secure by just plugging in post-quantum key exchange and a post-quantum signature scheme. But PQ signatures tend to be quite big and slow. KEMTLS is our proposal for a post-quantum secure variant of TLS that authenticates by using KEMs instead of the handshake signature. With a trick to preserve the ability to allow the client to send the request after the server sends its certificate: using KEMs instead of signatures doesn&rsquo;t take more round trips for this first message.
+We compare a few instantiations of KEMTLS. Optimised for communication size, KEMTLS, with SIKE for KEX and handshake authentication, GeMSS for the CA certificate and a custom XMSS for optional intermediate certificates, requires less than half the bandwidth of a post-quantum TLS 1.3 using Falcon for the handshake signature. When picking primitives for speed, KEMTLS reduces the amount of server CPU cycles by up to 90% compared to an equivalent post-quantum instantiation of TLS 1.3, as well as reducing the time before the client can send its first application data.</p><div class=row><div class=col-md-1></div><div class=col-md-10><div class=row><div class="col-12 col-md-3 pub-row-heading">Date</div><div class="col-12 col-md-9">2021-01-11 18:15</div></div></div><div class=col-md-1></div></div><div class="d-md-none space-below"></div><div class=row><div class=col-md-1></div><div class=col-md-10><div class=row><div class="col-12 col-md-3 pub-row-heading">Event</div><div class="col-12 col-md-9"><a href=https://rwc.iacr.org/2021/ target=_blank rel=noopener>IACR Real World Crypto 2021</a></div></div></div><div class=col-md-1></div></div><div class="d-md-none space-below"></div><div class=row><div class=col-md-1></div><div class=col-md-10><div class=row><div class="col-12 col-md-3 pub-row-heading">Location</div><div class="col-12 col-md-9">Virtual</div><div class=col-md-3></div><div class="col-12 col-md-9"></div></div></div><div class=col-md-1></div></div><div class="d-md-none space-below"></div><div class=space-below></div><div class=article-style><h1 id=post-quantum-tls-with-kems-instead-of-signatures>Post-Quantum TLS with KEMs instead of signatures</h1><p><em>This article has also been posted to <a href=https://claucece.github.io/2021/01/10/cf-kemtls.html target=_blank rel=noopener>Sofía Celi&rsquo;s blog</a> and the <a href=https://blog.cloudflare.com/kemtls-post-quantum-tls-without-signatures/ target=_blank rel=noopener>Cloudflare blog</a>.</em></p><p>Fundamentally, the Transport Layer Security protocol (TLS), which
+secures most of the Internet connections, has mainly been a key exchange
+authenticated by digital signatures.<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> Even though it has undergone
+major changes since 1994, when SSL 1.0 was introduced by Netscape, it&rsquo;s
+main mechanism has remained the same. The key exchange that is used was
+first based on RSA and later on (elliptic curve) Diffie-Hellman. The
+signatures used for authentication have almost always been RSA-based,
+though in recent years other kinds of signatures have been adopted,
+mainly ECDSA and Ed25519. This recent change to elliptic curve
+cryptography at both at a key exchange and signature level has resulted
+in considerable speed and bandwidth benefits in comparison to classic
+Diffie-Hellman and RSA.</p><p>TLS is the main protocol that protects the connections we use everyday.
+It is everywhere: it is used when we buy products online, when we
+register for a newsletter or when we access any kind of website. But,
+with the imminent threat of the arrival of
+<a href=https://blog.cloudflare.com/securing-the-post-quantum-world/ target=_blank rel=noopener>quantum computers</a>
+(a threat that seems to be getting closer and closer), we need to
+reconsider again the future of TLS. <a href=https://blog.cloudflare.com/the-tls-post-quantum-experiment/ target=_blank rel=noopener>A wide-scale post-quantum
+experiment</a>
+was carried out by Cloudflare and Google: two post-quantum key exchanges
+were integrated into their TLS stack and deployed at their edge servers
+and in Chrome Canary clients. The goal of that experiment was to
+evaluate the performance and feasibility of deployment of two
+post-quantum key exchanges in TLS.</p><p>Similar experiments have been proposed for introducing post-quantum
+algorithms into the TLS handshake itself. But, they all seem infeasible
+to be introduced at authentication by signature and key exchange levels
+as, unfortunately, post-quantum cryptographic primitives are bigger, or
+slower (or both) than their predecessors. The proposed algorithms under
+consideration in the <a href=https://csrc.nist.gov/Projects/post-quantum-cryptography/round-3-submissions target=_blank rel=noopener>NIST post-quantum standardization
+process</a>
+use larger mathematical objects than what is used for elliptic curves,
+traditional Diffie-Hellman or RSA. As a result, the size of public keys,
+signatures and key exchange material is much bigger than those from
+elliptic curves, Diffie-Hellman or RSA.</p><p>How can we solve this problem? How can we use post-quantum algorithms as
+part of the TLS handshake without making the material too big to be
+transmitted? In this blogpost, we will introduce a new mechanism for
+making this happen, explain how it can be integrated into the handshake
+and talk about implementation details. The key observation in this
+mechanism is that, while post-quantum algorithms have bigger
+communication size than their predecessors, post-quantum <em>key exchanges</em>
+have somewhat smaller sizes than post-quantum <em>signatures</em>, so we can
+try to replace key exchanges with signatures in some places to save
+space. We will only focus on the TLS 1.3 handshake as it is the TLS
+version that should be currently used.</p><h2 id=the-past-experiments-making-the-traditional-tls-13-handshake-post-quantum>The past experiments: making the traditional TLS 1.3 handshake post-quantum</h2><p><a href=https://tools.ietf.org/html/rfc8446 target=_blank rel=noopener>TLS 1.3</a> was introduced in
+August 2018 with many security and performance improvements (notably,
+having only one round-trip to complete the handshake). But TLS 1.3 is
+designed for a world with classical computers, and some of its
+functionalities will be broken by quantum computers when they arrive.</p><p>The primary goals of TLS 1.3 are to provide authentication (the server
+side of the channel is always authenticated, the client side is
+optionally authenticated), confidentiality and integrity by using a
+handshake protocol and a record protocol. The handshake protocol, the
+one of interest for us today, establishes the cryptographic parameters
+for securing and authenticating a connection. It can be thought of as of
+having three main phases, as defined in
+<a href=https://tools.ietf.org/html/rfc8446 target=_blank rel=noopener>RFC8446</a>:</p><ul><li><p>The Parameter Negotiation phase (referred to as &lsquo;Server Parameters&rsquo;
+in RFC8446), which establishes other handshake parameters (whether the
+client is authenticated, application-layer protocol support, etc).</p></li><li><p>The Key Exchange phase, which establishes shared keying material and
+selects the cryptographic parameters to be used. Everything after this
+phase will be encrypted.</p></li><li><p>The Authentication phase, which authenticates the server (and,
+optionally, the client) and provides key confirmation and handshake
+integrity.</p></li></ul><p>The main idea of past experiments that introduced post-quantum
+algorithms into the handshake of TLS 1.3 was to use them in place of
+classical algorithms by advertising them as part of the <a href=https://tools.ietf.org/html/rfc8446#section-4.2.7 target=_blank rel=noopener>supported
+groups</a> (an
+extension used by the client to indicate which named groups -Elliptic
+Curve Groups, Finite Field Groups- it supports for key exchange) and
+<a href=https://tools.ietf.org/html/rfc8446#section-4.2.8 target=_blank rel=noopener>key share</a> (an
+extension which contains the endpoint&rsquo;s cryptographic parameters)
+extensions, and, therefore, establishing with them the negotiated
+connection parameters. Key encapsulation mechanisms (KEMs) are an
+abstraction of the basic key exchange primitive and were used to
+generate the shared secrets. In the case of using a <a href=https://tools.ietf.org/html/rfc8446#section-4.2.11 target=_blank rel=noopener>pre-shared
+key</a>, its symmetric
+algorithms can be easily replaced by post-quantum KEMs, as well; and, in
+the case of password-authenticated TLS, there has been some
+<a href=https://eprint.iacr.org/2017/1192.pdf target=_blank rel=noopener>proposed ideas</a> on how to use
+post-quantum algorithms with them.</p><p>Most of the above ideas only provide what is often defined as
+&rsquo;transitional security&rsquo;, as its main focus is providing
+quantum-resistant confidentiality, but do not take into account
+quantum-resistant authentication. The idea of using post-quantum
+signatures for TLS authentication is possible, but the sizes of
+post-quantum signatures are larger than traditional ones. Furthermore,
+it is <a href=https://csrc.nist.gov/Presentations/2019/the-2nd-round-of-the-nist-pqc-standardization-proc target=_blank rel=noopener>worth noting</a>
+that using post-quantum signatures is much heavier than using
+post-quantum KEMs.</p><p>We can estimate the impact of such a replacement on network traffic by
+simply looking at the sum of the cryptographic objects that are
+transmitted during the handshake. In a typical TLS 1.3 handshake using
+elliptic curve X25519 and RSA-2048, such a handshake would transmit 1376
+bytes corresponding to: the public keys for key exchange, the
+certificate, the signature of the handshake, and the certificate chain.
+If we were to replace X25519 by the post-quantum KEM
+<a href=https://pq-crystals.org/kyber/ target=_blank rel=noopener>Kyber512</a> and RSA by the post-quantum
+signature <a href=https://pq-crystals.org/dilithium/ target=_blank rel=noopener>Dilithium II</a>, two of
+the more efficient proposals, the size transmitted data would increase
+to 10036 bytes.<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> The increase is mostly due to the size of the
+post-quantum signature algorithm.</p><p>The question then is: how can we achieve full post-quantum security and
+give a handshake that is efficient to be used?</p><h2 id=a-more-efficient-proposal-kemtls>A more efficient proposal: KEMTLS</h2><p>There is a long history of other mechanisms, besides signatures, being
+used for authentication. Modern protocols, such as the Signal protocol,
+the Noise framework or WireGuard, rely on key exchange mechanisms for
+authentication; but are somewhat unsuitable for the TLS 1.3 case as they
+expect the long-term key material to be known in advance by the
+interested parties.</p><p>The <a href=https://eprint.iacr.org/2015/978.pdf target=_blank rel=noopener>OPTLS proposal</a> by Krawczyk
+and Wee gives authentication for the TLS handshake without signatures by
+using a non-interactive key exchange (NIKE). However, the only somewhat
+efficient construction for a post-quantum NIKE is CSIDH, the security of
+which is the subject of ongoing debate. But, we can build on this idea
+by using KEMs for authentication. KEMTLS, the current proposed
+experiment, replaces the handshake signature by a post-quantum KEM key
+exchange. It was designed and introduced by Peter Schwabe, Douglas
+Stebila and Thom Wiggers on the
+<a href=https://thomwiggers.nl/publication/kemtls/kemtls.pdf target=_blank rel=noopener>publication &lsquo;Post-Quantum TLS Without Handshake Signatures&rsquo;</a>.</p><p>KEMTLS, therefore, gives the same goals as TLS 1.3 (authentication,
+confidentiality and integrity) in the face of quantum computers for both
+clients and servers. One small difference compared to TLS 1.3 is that
+KEMTLS only allows to send application data since the second
+client-to-server TLS message flow (TLS 1.3 allows the server to send
+encrypted and authentication application data in its first response
+message).</p><p>Intuitively, the handshake signature in TLS 1.3 proves possession of the
+private key corresponding to the public key certified in the TLS 1.3
+server certificate. For these signature schemes, this is the
+straightforward way to prove possession; but it&rsquo;s also possible to make
+such proof through key exchanges. By carefully considering the key
+derivation sequence, only the server holding the private key that
+corresponds to the certified public key can decrypt any messages sent by
+the client to the server. Therefore, implicit authentication is
+fulfilled. It is worth noting that KEMTLS still relies on signatures by
+certificate authorities to authenticate the long-term KEM keys.</p><p>As said, KEMTLS&rsquo; application data transmitted during the handshake is
+implicitly, rather than explicitly authenticated (as in TLS 1.3), and
+has slightly weaker downgrade resilience and forward secrecy; but full
+downgrade resilience and forward secrecy is achieved once the KEMTLS
+handshake completes.</p><p><figure><div class="d-flex justify-content-center"><div class=w-100><img alt="TLS vs KEMTLS state diagram" srcset="/event/2021-01-11-rwc/statediagrams_hu064719642517c0de8b7e0d5c695ad3f3_244144_9b97a23c926d29c01ca53dc63b2f72b0.webp 400w,
+/event/2021-01-11-rwc/statediagrams_hu064719642517c0de8b7e0d5c695ad3f3_244144_5c1216ea991f74ffe98a721a769593e8.webp 760w,
+/event/2021-01-11-rwc/statediagrams_hu064719642517c0de8b7e0d5c695ad3f3_244144_1200x1200_fit_q75_h2_lanczos.webp 1200w" src=/event/2021-01-11-rwc/statediagrams_hu064719642517c0de8b7e0d5c695ad3f3_244144_9b97a23c926d29c01ca53dc63b2f72b0.webp width=760 height=460 loading=lazy data-zoomable></div></div></figure></p><p>By replacing the handshake signature by a KEM key exchange, we reduce
+the size of the data transmitted in the example handshake using Kyber512
+and Dilithium II to 8344 bytes, a significant reduction. Even for
+algorithms, such the NTRU-assumption based KEM NTRU and signature
+algorithm Falcon, that have a less-pronounced size gap, we still reduce
+bytes. KEM operations are typically computationally much lighter than
+signing operations as well, which makes the reduction even more
+significant.</p><p>KEMTLS was presented at ACM CCS 2020. You can read more about its
+details in <a href=https://thomwiggers.nl/publication/kemtls/kemtls.pdf target=_blank rel=noopener>the paper</a>. It was
+initially <a href=https://github.com/thomwiggers/kemtls-experiment target=_blank rel=noopener>implemented in the RustTLS library</a>
+by Thom Wiggers using optimized C and assembly implementations of the post-quantum
+algorithms provided by the <a href=https://github.com/PQClean/PQClean target=_blank rel=noopener>PQClean</a> and
+<a href=https://openquantumsafe.org/ target=_blank rel=noopener>Open Quantum Safe</a> projects.</p><h2 id=cloudflare-and-kemtls-the-implementation>Cloudflare and KEMTLS: the implementation</h2><p>As part of our effort to show that TLS can be completely post-quantum
+safe, we implemented the full KEM TLS handshake over the Golang&rsquo;s TLS
+1.3 suite. The implementation was done in several steps:</p><ul><li><p>We first needed to clone our own version of Golang, so we could add
+different post-quantum algorithms to it. You can find our own version
+<a href=https://github.com/cloudflare/go/ target=_blank rel=noopener>here</a>. This code gets constantly updated
+with every release of Golang, following
+<a href=https://github.com/cloudflare/go/wiki/Starting-out target=_blank rel=noopener>these steps</a>.</p></li><li><p>We needed to implement post-quantum algorithms in Golang, which we
+did on our own cryptographic library
+<a href=https://github.com/cloudflare/circl/tree/master/kem target=_blank rel=noopener>CIRCL</a>.</p></li><li><p>As we cannot force certificate authorities to use certificates with
+long-term key post-quantum KEM keys, we decided to use <a href=https://blog.cloudflare.com/keyless-delegation/ target=_blank rel=noopener>Delegated
+Credentials</a>. A
+delegated credential is a short-lasting key that the certificate&rsquo;s
+owner has delegated for use in TLS. Therefore, they can be used for
+having post-quantum KEM keys. See its implementation in our Golang
+code
+<a href=https://github.com/cloudflare/go/tree/cf-delegated-credentials target=_blank rel=noopener>here</a>.</p></li><li><p>We implemented mutual auth KEMTLS by using Delegated Credentials for
+the authentication process. See its implementation in our Golang
+code <a href=https://github.com/cloudflare/go/tree/cf-pq-kemtls target=_blank rel=noopener>here</a>.
+You can also check its
+<a href=https://github.com/cloudflare/go/blob/cf-pq-kemtls/src/crypto/tls/delegated_credentials_test.go#L774 target=_blank rel=noopener>test</a>
+for an overview of how it works.</p></li></ul><p>Implementing KEMTLS was a straightforward process, although it did require
+changes to the way Golang handles a TLS 1.3 handshake and how the key schedule
+works.</p><p>A &ldquo;regular&rdquo; TLS 1.3 handshake in Golang (from the server perspective) looks like
+this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>hs</span> <span class=o>*</span><span class=nx>serverHandshakeStateTLS13</span><span class=p>)</span> <span class=nf>handshake</span><span class=p>()</span> <span class=kt>error</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>c</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nx>c</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// For an overview of the TLS 1.3 handshake, see RFC 8446, Section 2.
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>processClientHello</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>checkForResumption</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>pickCertificate</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>c</span><span class=p>.</span><span class=nx>buffering</span> <span class=p>=</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>sendServerParameters</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>sendServerCertificate</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>sendServerFinished</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Note that at this point we could start sending application data without
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>// waiting for the client&#39;s second flight, but the application might not
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>// expect the lack of replay protection of the ClientHello parameters.
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>if</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>c</span><span class=p>.</span><span class=nf>flush</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>readClientCertificate</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>hs</span><span class=p>.</span><span class=nf>readClientFinished</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>atomic</span><span class=p>.</span><span class=nf>StoreUint32</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>c</span><span class=p>.</span><span class=nx>handshakeStatus</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=kc>nil</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>We had to interrupt at the point that the server sends the Certificate
+(<code>sendServerCertificate()</code>) in order to send the KEMTLS specific messages. In
+the same way, we had to add the appropriate KEM TLS messages to the client&rsquo;s
+handshake. And, as we didn&rsquo;t want to change so much the way Golang handles TLS
+1.3, we only added one new constant to the configuration that can be used by
+a server in order to ask for the Client&rsquo;s Certificate (the constant is
+<code>serverConfig.ClientAuth = RequestClientKEMCert</code>).</p><p>The implementation is easy to work with: if a delegated credential or
+a certificate has a public key of a supported post-quantum KEM algorithm, the
+handshake will proceed with KEMTLS. If the server requests for a Client KEMTLS
+Certificate, the handshake will invoke client KEMTLS authentication.</p><p>Many thanks to everyone involved in the project: Chris Wood, Armando
+Faz-Hernandez, Thom Wiggers, Bas Westerbaan, Peter Wu, Peter Schwabe, Goutam
+Tamvada, Douglas Stebila, Thibault Meunier, and the whole Cloudflare
+cryptography team.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>It is worth noting that the RSA key transport in TLS ≤1.2 authenticates
+the server by RSA public key encryption, although the server&rsquo;s RSA public key
+is certified using RSA signatures by Certificate Authorities.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>These numbers, as we do in the paper, are based on the round-2 submissions.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=article-tags><a class="badge badge-light" href=/tag/kemtls/>KEMTLS</a>
+<a class="badge badge-light" href=/tag/pqtls/>PQTLS</a>
+<a class="badge badge-light" href=/tag/post-quantum/>Post-Quantum</a>
+<a class="badge badge-light" href=/tag/research/>research</a></div><div class=share-box><ul class=share><li><a href="https://twitter.com/intent/tweet?url=https://kemtls.org/event/2021-01-11-rwc/&text=Post-Quantum%20TLS%20without%20handshake%20signatures%20at%20RWC%202021" target=_blank rel=noopener class=share-btn-twitter aria-label=twitter><i class="fab fa-twitter"></i></a></li><li><a href="https://www.facebook.com/sharer.php?u=https://kemtls.org/event/2021-01-11-rwc/&t=Post-Quantum%20TLS%20without%20handshake%20signatures%20at%20RWC%202021" target=_blank rel=noopener class=share-btn-facebook aria-label=facebook><i class="fab fa-facebook"></i></a></li><li><a href="mailto:?subject=Post-Quantum%20TLS%20without%20handshake%20signatures%20at%20RWC%202021&body=https://kemtls.org/event/2021-01-11-rwc/" target=_blank rel=noopener class=share-btn-email aria-label=envelope><i class="fas fa-envelope"></i></a></li><li><a href="https://www.linkedin.com/shareArticle?url=https://kemtls.org/event/2021-01-11-rwc/&title=Post-Quantum%20TLS%20without%20handshake%20signatures%20at%20RWC%202021" target=_blank rel=noopener class=share-btn-linkedin aria-label=linkedin-in><i class="fab fa-linkedin-in"></i></a></li><li><a href="whatsapp://send?text=Post-Quantum%20TLS%20without%20handshake%20signatures%20at%20RWC%202021%20https://kemtls.org/event/2021-01-11-rwc/" target=_blank rel=noopener class=share-btn-whatsapp aria-label=whatsapp><i class="fab fa-whatsapp"></i></a></li><li><a href="https://service.weibo.com/share/share.php?url=https://kemtls.org/event/2021-01-11-rwc/&title=Post-Quantum%20TLS%20without%20handshake%20signatures%20at%20RWC%202021" target=_blank rel=noopener class=share-btn-weibo aria-label=weibo><i class="fab fa-weibo"></i></a></li></ul></div><div class="media author-card content-widget-hr"><a href=/author/thom-wiggers/><img class="avatar mr-3 avatar-circle" src=/author/thom-wiggers/avatar_hu25d333fcded103db2f52f7476cb1420a_2071813_270x270_fill_q75_lanczos_center.jpg alt="Thom Wiggers"></a><div class=media-body><h5 class=card-title><a href=/author/thom-wiggers/>Thom Wiggers</a></h5><h6 class=card-subtitle>PhD candidate</h6><p class=card-text>My research interests include (post-quantum) cryptography and protocols</p><ul class=network-icon aria-hidden=true><li><a href=mailto:thom@kemtls.org><i class="fas fa-envelope"></i></a></li><li><a href=https://twitter.com/thomwiggers target=_blank rel=noopener><i class="fab fa-twitter"></i></a></li><li><a href="https://scholar.google.co.uk/citations?user=V0A4RMsAAAAJ" target=_blank rel=noopener><i class="ai ai-google-scholar"></i></a></li><li><a href=https://github.com/thomwiggers target=_blank rel=noopener><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/thomwiggers/ target=_blank rel=noopener><i class="fab fa-linkedin"></i></a></li><li><a href=https://thomwiggers.nl target=_blank rel=noopener><i class="fas fa-globe"></i></a></li></ul></div></div></div></div></div><div class=page-footer><div class=container><footer class=site-footer><p class="powered-by copyright-license-text">© 2022 authors. This work is licensed under <a href=https://creativecommons.org/licenses/by-sa/4.0 rel="noopener noreferrer" target=_blank>CC BY SA 4.0</a></p><p class="powered-by footer-license-icons"><a href=https://creativecommons.org/licenses/by-sa/4.0 rel="noopener noreferrer" target=_blank aria-label="Creative Commons"><i class="fab fa-creative-commons fa-2x" aria-hidden=true></i>
+<i class="fab fa-creative-commons-by fa-2x" aria-hidden=true></i>
+<i class="fab fa-creative-commons-sa fa-2x" aria-hidden=true></i></a></p><p class=powered-by>Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target=_blank rel=noopener>Wowchemy</a> — the free, <a href=https://github.com/wowchemy/wowchemy-hugo-themes target=_blank rel=noopener>open source</a> website builder that empowers creators.</p></footer></div></div><script src=/js/vendor-bundle.min.92d2024afaa4dce0cad42ba360879ce9.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js integrity crossorigin=anonymous></script>
+<script id=search-hit-fuse-template type=text/x-template>
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script><script src=https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin=anonymous></script>
+<script id=page-data type=application/json>{"use_headroom":true}</script><script src=/js/wowchemy-headroom.e8fd2d733eef6a8bbbe0539398fc0547.js type=module></script>
+<script src=/en/js/wowchemy.min.138e4fc03b1bc7a45d26646bd6024f76.js></script>
+<script src=/js/wowchemy-map.a26e9d2f7238ba5b868384f1c5bc6477.js type=module></script><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>Cite</h5><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i> Copy</a>
+<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i> Download</a><div id=modal-error></div></div></div></div></div><script src=/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js type=module></script></body></html>
