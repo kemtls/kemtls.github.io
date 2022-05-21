@@ -52,6 +52,9 @@ social:
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/cryptojedi
+  - icon: google-scholar
+    icon_pack: ai
+    link: https://scholar.google.de/citations?user=CxxvqmEAAAAJ&hl=en
   - icon: github
     icon_pack: fab
     link: https://github.com/cryptojedi
