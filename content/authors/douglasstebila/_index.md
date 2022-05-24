@@ -35,7 +35,7 @@ interests:
 user_groups:
   - "Researchers"
 
-highlight_name: true
+highlight_name: false
 
 # List qualifications (such as academic degrees)
 education:
