@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Thom Wiggers | KEMTLS</title><link>https://kemtls.org/author/thom-wiggers/</link><atom:link href="https://kemtls.org/author/thom-wiggers/index.xml" rel="self" type="application/rss+xml"/><description>Thom Wiggers</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 27 Sep 2022 15:00:00 +0200</lastBuildDate><image><url>https://kemtls.org/author/thom-wiggers/avatar_hu25d333fcded103db2f52f7476cb1420a_2071813_270x270_fill_q75_lanczos_center.jpg</url><title>Thom Wiggers</title><link>https://kemtls.org/author/thom-wiggers/</link></image><item><title>A tale of two models: formalizing KEMTLS in Tamarin</title><link>https://kemtls.org/publication/kemtls-tamarin/</link><pubDate>Tue, 27 Sep 2022 15:00:00 +0200</pubDate><guid>https://kemtls.org/publication/kemtls-tamarin/</guid><description>&lt;h2 id="artefacts">Artefacts&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Thom Wiggers | KEMTLS</title><link>https://kemtls.org/author/thom-wiggers/</link><atom:link href="https://kemtls.org/author/thom-wiggers/index.xml" rel="self" type="application/rss+xml"/><description>Thom Wiggers</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 27 Sep 2022 15:00:00 +0200</lastBuildDate><image><url>https://kemtls.org/author/thom-wiggers/avatar_hu25d333fcded103db2f52f7476cb1420a_2071813_270x270_fill_q75_lanczos_center.jpg</url><title>Thom Wiggers</title><link>https://kemtls.org/author/thom-wiggers/</link></image><item><title>A tale of two models: formal analysis of KEMTLS in Tamarin</title><link>https://kemtls.org/event/2022-09-27-esorics-kemtls-tamarin/</link><pubDate>Tue, 27 Sep 2022 15:00:00 +0200</pubDate><guid>https://kemtls.org/event/2022-09-27-esorics-kemtls-tamarin/</guid><description/></item><item><title>A tale of two models: formalizing KEMTLS in Tamarin</title><link>https://kemtls.org/publication/kemtls-tamarin/</link><pubDate>Tue, 27 Sep 2022 15:00:00 +0200</pubDate><guid>https://kemtls.org/publication/kemtls-tamarin/</guid><description>&lt;h2 id="artefacts">Artefacts&lt;/h2>
 &lt;ul>
 &lt;li>The Tamarin model based on the Cremers et al. model:
 &lt;ul>
@@ -10,7 +10,364 @@
 &lt;li>&lt;a href="https://github.com/kemtls/Tamarin-multi-stage-model" target="_blank" rel="noopener">Model and proofs&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>KEMTLS with Delayed Forward Identity Protection in (Almost) a Single Round</title><link>https://kemtls.org/publication/kemtls-epoch/</link><pubDate>Mon, 16 May 2022 16:20:10 +0200</pubDate><guid>https://kemtls.org/publication/kemtls-epoch/</guid><description/></item><item><title>KEMTLS-PDK</title><link>https://kemtls.org/event/2021-10-07-esorics/</link><pubDate>Thu, 07 Oct 2021 15:15:00 +0100</pubDate><guid>https://kemtls.org/event/2021-10-07-esorics/</guid><description/></item><item><title>Implementing and Measuring KEMTLS</title><link>https://kemtls.org/publication/measuring-kemtls/</link><pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate><guid>https://kemtls.org/publication/measuring-kemtls/</guid><description/></item><item><title>More efficient post-quantum KEMTLS with pre-distributed public keys</title><link>https://kemtls.org/publication/kemtlspdk/</link><pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate><guid>https://kemtls.org/publication/kemtlspdk/</guid><description>&lt;h2 id="proof">Proof&lt;/h2>
+&lt;/ul></description></item><item><title>A tale of two models: Formal analysis of KEMTLS in Tamarin</title><link>https://kemtls.org/slides/kemtls-tamarin/</link><pubDate>Mon, 19 Sep 2022 10:51:35 +0200</pubDate><guid>https://kemtls.org/slides/kemtls-tamarin/</guid><description>
+&lt;section>
+&lt;h2>&lt;span style="font-family: cursive;">A tale of two models:&lt;/span>&lt;/h2>
+&lt;h3>Formal analysis of KEMTLS in Tamarin&lt;/h3>
+Sofía Celi, Jonathan Hoyland, Douglas Stebila and &lt;strong>Thom Wiggers&lt;/strong>.
+&lt;/section>
+&lt;section>
+&lt;section>
+&lt;p class="r-fit-text">Once upon a time...&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;ul>
+&lt;li class="fragment">Observation: PQ signatures are quite big and/or slow&lt;/li>
+&lt;li class="fragment">Idea: Use KEMs for authentication&lt;/li>
+&lt;li class="fragment">Proposal: &lt;a href="https://kemtls.org">&lt;strong>KEMTLS&lt;/strong>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/section>
+&lt;/section>
+&lt;section>
+&lt;section>
+&lt;h2>KEMTLS&lt;/h2>
+&lt;div class="t-container">
+&lt;div class="r-stack col">
+&lt;div class="mermaid">
+sequenceDiagram
+Client->>+Server: ClientHello: ephemeral kex
+Server->>-Client: ServerHello: ephemeral kex
+Server->>+Client: Certificate: static KEM pk
+Client->>-Server: Ciphertext
+Client->>Server: ClientFinished
+rect rgba(0, 0, 0, 0)
+Client-->>Server: Application Data
+end
+Server->>Client: ServerFinished
+Server-->>Client: Application Data
+&lt;/div>
+&lt;div class="fragment mermaid" style="background: #fff">
+sequenceDiagram
+Client->>+Server: ClientHello: ephemeral kex
+Server->>-Client: ServerHello: ephemeral kex
+Server->>+Client: Certificate: static KEM pk
+Client->>-Server: Ciphertext
+Client->>Server: ClientFinished
+rect pink
+Client-->>Server: Application Data
+end
+Server->>Client: ServerFinished
+Server-->>Client: Application Data
+&lt;/div>
+&lt;/div>
+&lt;div class="col" >
+&lt;ul>
+&lt;li>Ephemeral KEM key exchange&lt;/li>
+&lt;li>KEM public key in certificate&lt;/li>
+&lt;li>Avoid extra round-trip by letting client send data immediately&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;h2>KEMTLS variants&lt;/h2>
+&lt;ul>
+&lt;li class="fragment">Mutual authentication&lt;/li>
+&lt;li class="fragment">What if the client already knows the server's public key?
+&lt;ul>
+&lt;li>E.g. resumption, or PSK-like hardcoded keys&lt;/li>
+&lt;li>KEMTLS-PDK: KEMTLS with Pre-Distributed Keys&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/section>
+&lt;section>
+&lt;h2>Pen-and-paper proofs&lt;/h2>
+&lt;ul style="display: block; width: 100%">
+&lt;li>Original KEMTLS paper
+&lt;ul>
+&lt;li>Server-to-client authentication&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>KEMTLS-PDK paper:
+&lt;ul>
+&lt;li>Server-to-client authentication&lt;/li>
+&lt;li>Mutual authentication&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p class="fragment">Both proofs have seen several corrections, and live in similar, but slightly separate models.&lt;/p>
+&lt;/section>
+&lt;/section>
+&lt;section>
+&lt;h2>Computer-aided proofs&lt;/h2>
+&lt;ul>
+&lt;li> Proving things by hand:
+&lt;ul>
+&lt;li>Tedious, error-prone work&lt;/li>
+&lt;li>Very easy to subconciously fill in gaps in the analysis in your mind&lt;/li>
+&lt;li>Very hard to consider many variant protocols together&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li class="fragment">Computers:
+&lt;ul>
+&lt;li>Very, very good at being very, very literal&lt;/li>
+&lt;li>Will not accept handwavyness&lt;/li>
+&lt;li>Have no problem keeping track of different protocol variants&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/section>
+&lt;section>
+&lt;h2>Protocol analysis of TLS 1.3&lt;/h2>
+&lt;ul>
+&lt;li>TLS 1.3 has seen lots of pen-and-paper and computer-aided analysis work&lt;/li>
+&lt;li>Including analyses in Tamarin (Cremers et al.), Proverif (Barghavan et al.)&lt;/li>
+&lt;li>TLS 1.3 was developed using a "design-break-fix-release" cycle rather than "design-release-break-patch" cycle (Paterson and Van der Merwe)&lt;/li>
+&lt;/ul>
+&lt;/section>
+&lt;section data-visibility="hidden">
+&lt;section>
+&lt;h2>Tamarin&lt;/h2>
+&lt;p>
+Tamarin models protocols as &lt;em>rules&lt;/em> that take in a set of &lt;em>variables&lt;/em> and one or more &lt;em>messages&lt;/em>, and then emit new variables and messages.
+&lt;/p>
+&lt;p class="fragment">The (Dolev-Yao) attacker controls the network and can read, send, change, drop all messages.
+&lt;/p>
+&lt;p class="fragment">
+Any cryptographic operation is &lt;em>perfect&lt;/em>.
+Cryptographic compromise is modeled through manually modeled "oracles" that reveal specific keys.
+&lt;/p>
+&lt;/section>
+&lt;section>
+&lt;h2>Tamarin rules&lt;/h2>
+&lt;pre>&lt;code class="language-plaintext" data-trim data-line-numbers="1-11|2-4|5-7|8-11">
+rule ProtocolMessageI:
+[
+In(message), VariableI(x)
+]
+--[
+ReceivedMessageFact(message, x)
+]->
+[
+Out(SomeOtherMessage),
+VariableII(operation(x))
+]
+&lt;/code>&lt;/pre>
+&lt;/section>
+&lt;section>
+&lt;h2>Tamarin Lemmas&lt;/h2>
+&lt;pre>&lt;code class="language-plaintext" data-trim data-line-numbers="1-13|2|3-5|6|7-8|9-12">
+lemma my_lemma:
+"All key #i #j.
+ExchangedKey(key)@#i // some protocol-emitted fact
+// over `key` at time #i
+&amp; K(key)@#j // Adversary knows `key` at #j
+==> /* then */
+/* exists a time #z */
+Ex #z.
+/* at which key was revealed */
+RevealedKey(key)@#z
+/* and #z was before #j */
+&amp; #z &lt; #j
+"
+&lt;/code>&lt;/pre>
+&lt;/section>
+&lt;/section>
+&lt;section>
+&lt;section>
+&lt;h2>Two approaches&lt;/h2>
+&lt;div class="t-container">
+&lt;div class="col">
+&lt;h3>Approach #1&lt;/h3>
+Take an existing model and adapt it to represent KEMTLS
+&lt;/div>
+&lt;div class="col">
+&lt;h3>Approach #2&lt;/h3>
+Build a new model from scratch
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;h2>Game plan&lt;/h2>
+&lt;div class="t-container">
+&lt;div class="col">
+&lt;h3>Approach #1&lt;/h3>
+&lt;ol>
+&lt;li>Take the &lt;a href="https://tls13tamarin.github.io">TLS 1.3 Tamarin model by Cremers et al.&lt;/a>&lt;/li>
+&lt;li>Change it to represent KEMTLS(-PDK)&lt;/li>
+&lt;li>???&lt;/li>
+&lt;li>Prove it!&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;div class="col">
+&lt;h3>Approach #2&lt;/h3>
+&lt;ol>
+&lt;li>Simplify the protocol to its cryptographic core&lt;/li>
+&lt;li>Convert the pen-and-paper claimed security properties to Tamarin&lt;/li>
+&lt;li>???&lt;/li>
+&lt;li>Prove it&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section style="font-size: 80%">
+&lt;h2>Motivations&lt;/h2>
+&lt;div class="t-container">
+&lt;div class="col">
+&lt;h3>Approach #1&lt;/h3>
+&lt;ol>
+&lt;li>Tried-and-tested TLS model&lt;/li>
+&lt;li>Many tedious protocol details already modeled:
+&lt;ul>
+&lt;li>Key derivation&lt;/li>
+&lt;li>Handshake encryption&lt;/li>
+&lt;li>Message syntax&lt;/li>
+&lt;li>Record layer&lt;/li>
+&lt;li>Certificate PKI&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Many existing lemmas: both security lemmas as well as "helper" lemmas&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;div class="col">
+&lt;h3>Approach #2&lt;/h3>
+&lt;ul>
+&lt;li>Precisely model the different levels of forward-secrecy and explicit authentication properties claimed in our pen-and-paper proofs&lt;/li>
+&lt;li>Don't carry around the baggage of handshake encryption, full TLS key schedule&lt;/li>
+&lt;li>Analyze KEMTLS' deniability features&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section style="font-size: 60%">
+&lt;h2>Feature comparison&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Feature&lt;/th>
+&lt;th>Model #1&lt;/th>
+&lt;th>Model #2&lt;/th>
+&lt;/tr>
+&lt;tr>
+&lt;th colspan="3">&lt;em>Protocol modelling&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Encrypted handshake messages&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>HKDF and HMAC decomposed into hash&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Key exchange and auth KEMs are same algorithm&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th colspan="3">&lt;em>Security properties&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;tr>
+&lt;td>Adversary can reveal long-term keys&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Adversary can reveal ephemeral keys&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Adversary can reveal intermediate session keys&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Secrecy of handshake and traffic keys&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Forward Secrecy&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Multiple flavours of forward secrecy&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Explicit authentication&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Deniability&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/section>
+&lt;section style="font-size: 80%">
+&lt;h2>Results&lt;/h2>
+&lt;div class="t-container">
+&lt;div class="col">
+&lt;h3>Approach #1&lt;/h3>
+&lt;ul>
+&lt;li>Managed to make the model auto-prove
+&lt;ul>&lt;li style="color: grey; font-size: 50%">We did disable some features not immediately relevant to KEMTLS (including post-handshake authentication, PSK)&lt;/li>&lt;/ul>
+&lt;/li>
+&lt;li>Run-time: 28 hours (many, many cores)&lt;/li>
+&lt;li>Memory required: >120GB of RAM&lt;/li>
+&lt;li>Found a minor bug in a lemma of the Cremers et al. model&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;div class="col">
+&lt;h3>Approach #2&lt;/h3>
+&lt;ul>
+&lt;li>Found several minor mistakes in stated forward secrecy and authentication properties of KEMTLS and KEMTLS-PDK&lt;/li>
+&lt;li>Proves most security properties of KEMTLS in &lt;strong>minutes&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;/section>
+&lt;section>
+&lt;h2>Some more thoughts on Model #2&lt;/h2>
+&lt;ul>
+&lt;li>Surprisingly straightforward model:
+&lt;ul>
+&lt;li>Direct translation of security properties to Tamarin&lt;/li>
+&lt;li>~40 hours of work: much less than for #1&lt;/li>
+&lt;li>Modeling in both instances done by "newbies"&lt;/li>
+&lt;li>0 helper lemmas (no &lt;code>[reuse]&lt;/code>!)&lt;/li>
+&lt;li>Everything auto-proves&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Maybe Tamarin is not so scary after all?&lt;/li>
+&lt;/ul>
+&lt;/section>
+&lt;/section>
+&lt;section>
+&lt;section>&lt;h1>Wrap-up&lt;/h1>&lt;/section>
+&lt;section>
+&lt;h3>A tale of two models: formal analysis of KEMTLS in Tamarin&lt;/h3>
+&lt;ul>
+&lt;li>Two approaches, two viewpoints: more confidence&lt;/li>
+&lt;li>It is possible to rigorize your pen-and-paper proofs in Tamarin&lt;/li>
+&lt;li>Full version of the paper and model source code available at &lt;a href="https://kemtls.org">https://kemtls.org/&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p class="fragment">Model your own protocols!&lt;/p>
+&lt;p class="fragment">Thanks for your attention&lt;/p>
+&lt;p style="font-family: monospace; font-size: 80%">🐦 &lt;a href="https://twitter.com/thomwiggers">@thomwiggers&lt;/a>&lt;/p>
+&lt;/section>
+&lt;/section></description></item><item><title>KEMTLS with Delayed Forward Identity Protection in (Almost) a Single Round</title><link>https://kemtls.org/publication/kemtls-epoch/</link><pubDate>Mon, 16 May 2022 16:20:10 +0200</pubDate><guid>https://kemtls.org/publication/kemtls-epoch/</guid><description/></item><item><title>KEMTLS-PDK</title><link>https://kemtls.org/event/2021-10-07-esorics/</link><pubDate>Thu, 07 Oct 2021 15:15:00 +0100</pubDate><guid>https://kemtls.org/event/2021-10-07-esorics/</guid><description/></item><item><title>Implementing and Measuring KEMTLS</title><link>https://kemtls.org/publication/measuring-kemtls/</link><pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate><guid>https://kemtls.org/publication/measuring-kemtls/</guid><description/></item><item><title>More efficient post-quantum KEMTLS with pre-distributed public keys</title><link>https://kemtls.org/publication/kemtlspdk/</link><pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate><guid>https://kemtls.org/publication/kemtlspdk/</guid><description>&lt;h2 id="proof">Proof&lt;/h2>
 &lt;p>The full version is linked above.&lt;/p>
 &lt;h2 id="software">Software&lt;/h2>
 &lt;p>The implementation can be found &lt;a href="https://github.com/thomwiggers/kemtls-experiment/tree/reimplementation" target="_blank" rel="noopener">on Github&lt;/a>.&lt;/p></description></item><item><title>KEMTLS: securing TLS connections from quantum adversaries</title><link>https://kemtls.org/event/2021-03-29-cloudflaretv/</link><pubDate>Mon, 29 Mar 2021 14:00:00 +0200</pubDate><guid>https://kemtls.org/event/2021-03-29-cloudflaretv/</guid><description/></item><item><title>Post-Quantum TLS without handshake signatures at RWC 2021</title><link>https://kemtls.org/event/2021-01-11-rwc/</link><pubDate>Mon, 11 Jan 2021 18:15:00 +0100</pubDate><guid>https://kemtls.org/event/2021-01-11-rwc/</guid><description>&lt;h1 id="post-quantum-tls-with-kems-instead-of-signatures">Post-Quantum TLS with KEMs instead of signatures&lt;/h1>
@@ -295,17 +652,17 @@ Certificate, the handshake will invoke client KEMTLS authentication.&lt;/p>
 Faz-Hernandez, Thom Wiggers, Bas Westerbaan, Peter Wu, Peter Schwabe, Goutam
 Tamvada, Douglas Stebila, Thibault Meunier, and the whole Cloudflare
 cryptography team.&lt;/p>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>It is worth noting that the RSA key transport in TLS ≤1.2 authenticates
 the server by RSA public key encryption, although the server&amp;rsquo;s RSA public key
 is certified using RSA signatures by Certificate Authorities.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
-&lt;li id="fn:2" role="doc-endnote">
+&lt;li id="fn:2">
 &lt;p>These numbers, as we do in the paper, are based on the round-2 submissions.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>Post-Quantum TLS without handshake signatures</title><link>https://kemtls.org/event/2020-11-12-acmccs_kemtls/</link><pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate><guid>https://kemtls.org/event/2020-11-12-acmccs_kemtls/</guid><description/></item><item><title>Post-Quantum TLS without handshake signatures</title><link>https://kemtls.org/event/2020-10-05-lorentz_workshop_kemtls/</link><pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate><guid>https://kemtls.org/event/2020-10-05-lorentz_workshop_kemtls/</guid><description/></item><item><title>Post-Quantum TLS without handshake signatures</title><link>https://kemtls.org/publication/kemtls/</link><pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate><guid>https://kemtls.org/publication/kemtls/</guid><description>&lt;h2 id="software">Software&lt;/h2>
+&lt;/div></description></item><item><title>Post-Quantum TLS without handshake signatures</title><link>https://kemtls.org/event/2020-11-12-acmccs_kemtls/</link><pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate><guid>https://kemtls.org/event/2020-11-12-acmccs_kemtls/</guid><description/></item><item><title>Post-Quantum TLS without handshake signatures</title><link>https://kemtls.org/event/2020-10-05-lorentz_workshop_kemtls/</link><pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate><guid>https://kemtls.org/event/2020-10-05-lorentz_workshop_kemtls/</guid><description/></item><item><title>Post-Quantum TLS without handshake signatures</title><link>https://kemtls.org/publication/kemtls/</link><pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate><guid>https://kemtls.org/publication/kemtls/</guid><description>&lt;h2 id="software">Software&lt;/h2>
 &lt;p>The raw data and software that accompanies this publication can be found at &lt;a href="https://github.com/thomwiggers/kemtls-experiment/" target="_blank" rel="noopener">Github&lt;/a>.&lt;/p></description></item></channel></rss>

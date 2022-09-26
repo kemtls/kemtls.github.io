@@ -292,16 +292,16 @@ Certificate, the handshake will invoke client KEMTLS authentication.&lt;/p>
 Faz-Hernandez, Thom Wiggers, Bas Westerbaan, Peter Wu, Peter Schwabe, Goutam
 Tamvada, Douglas Stebila, Thibault Meunier, and the whole Cloudflare
 cryptography team.&lt;/p>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>It is worth noting that the RSA key transport in TLS ≤1.2 authenticates
 the server by RSA public key encryption, although the server&amp;rsquo;s RSA public key
 is certified using RSA signatures by Certificate Authorities.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
-&lt;li id="fn:2" role="doc-endnote">
+&lt;li id="fn:2">
 &lt;p>These numbers, as we do in the paper, are based on the round-2 submissions.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>
