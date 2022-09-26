@@ -1,6 +1,6 @@
 (() => {
   // ns-params:@params
-  var slides = null;
+  var slides = { diagram: true, diagram_options: { sequence: { mirror_actors: false }, theme: "neutral" }, highlight_style: "dracula", reveal_options: { background_transition: "slide", center: true, controls: true, hash: true, loop: false, menu_enabled: true, mouse_wheel: true, navigation_mode: "linear", progress: "trueu", rtl: false, slide_number: "c/t", touch: true, transition: "fade", transitionspeed: "default" }, theme: "simple" };
 
   // <stdin>
   var enabledPlugins = [RevealMarkdown, RevealSearch, RevealNotes, RevealMath.MathJax3, RevealZoom, RevealHighlight];
