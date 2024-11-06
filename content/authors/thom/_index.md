@@ -9,12 +9,12 @@ authors: ["thom"]
 superuser: true
 
 # Role/position
-role: "PhD candidate"
+role: "Cryptography Researcher"
 
 # Organizations/Affiliations
 organizations:
-  - name: "Radboud University"
-    url: "https://ru.nl/icis/"
+  - name: "PQShield"
+    url: "https://pqshield.com"
 
 # Short bio (displayed in user profile at end of posts)
 bio: "My research interests include (post-quantum) cryptography and protocols"
